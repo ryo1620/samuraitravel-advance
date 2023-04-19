@@ -112,7 +112,7 @@
                                         </div>                                
                                     </div>
                                     
-                                    <div sec:authorize="isAnonymous()" class="col-lg-4 px-0 ps-lg-4">                  
+                                    <div sec:authorize="isAnonymous()" class="col-lg-4 px-0 ps-lg-4 mb-4">                  
                                         <div class="card">
                                             <div class="card-body">                                                                                                                                                                                                                     
                                                 <p class="card-text">予約するには<a th:href="@{/login}">ログイン</a>が必要です。</p>                                                                                                                                            
@@ -121,7 +121,7 @@
                                         </div>  
                                     </div> 
                                     
-                                    <div sec:authorize="isAuthenticated()" class="col-lg-4 px-0 ps-lg-4">                  
+                                    <div sec:authorize="isAuthenticated()" class="col-lg-4 px-0 ps-lg-4 mb-4">                  
                                         <div class="card">
                                             <div class="card-body"> 
                                                 <form method="get" th:action="@{/houses/__${house.getId()}__/reservations/input}" th:object="${reservationInputForm}">                                                                                                                                                                       
