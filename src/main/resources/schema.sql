@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS houses (
+CREATE TABLE IF NOT EXISTS samuraitravel_db.houses (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,  
     image_name VARCHAR(255),
@@ -12,12 +12,12 @@ CREATE TABLE IF NOT EXISTS houses (
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS roles (
+CREATE TABLE IF NOT EXISTS samuraitravel_db.roles (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS samuraitravel_db.users (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     furigana VARCHAR(50) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS users (
     FOREIGN KEY (role_id) REFERENCES roles (id)
 );
 
-CREATE TABLE IF NOT EXISTS verification_tokens (
+CREATE TABLE IF NOT EXISTS samuraitravel_db.verification_tokens (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL UNIQUE,
     token VARCHAR(255) NOT NULL,        
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS verification_tokens (
     FOREIGN KEY (user_id) REFERENCES users (id) 
 );
 
-CREATE TABLE IF NOT EXISTS reservations (
+CREATE TABLE IF NOT EXISTS samuraitravel_db.reservations (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     house_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS reservations (
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
-CREATE TABLE IF NOT EXISTS reviews (
+CREATE TABLE IF NOT EXISTS samuraitravel_db.reviews (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     house_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS reviews (
     
 );
 
-CREATE TABLE IF NOT EXISTS favorites (
+CREATE TABLE IF NOT EXISTS samuraitravel_db.favorites (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     house_id INT NOT NULL,
     user_id INT NOT NULL,    
